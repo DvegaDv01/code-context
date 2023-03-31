@@ -1,0 +1,51 @@
+{
+    "directories": {
+        "name": "project",
+        "subdirectories": [
+            {
+                "name": "src",
+                "subdirectories": [
+                    {
+                        "name": "module1",
+                        "subdirectories": [],
+                        "files": [
+                            {
+                                "name": "file1.py",
+                                "variables": [{"name": "x", "data_type": "int"}],
+                                "functions": [{"name": "func1", "signature": "def func1():"}],
+                                "classes": [{"name": "Class1", "members": ["method1", "method2"]}]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "module2",
+                        "subdirectories": [
+                            {
+                                "name": "submodule",
+                                "subdirectories": [],
+                                "files": [
+                                    {
+                                        "name": "file2.py",
+                                        "variables": [{"name": "y", "data_type": "float"}],
+                                        "functions": [{"name": "func2", "signature": "def func2():"}],
+                                        "classes": [{"name": "Class2", "members": ["method3", "method4"]}]
+                                    }
+                                ]
+                            }
+                        ],
+                        "files": []
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "main.py",
+                        "variables": [{"name": "z", "data_type": "str"}],
+                        "functions": [{"name": "main", "signature": "def main():"}],
+                        "classes": [{"name": "MainClass", "members": ["method5"]}]
+                    }
+                ]
+            }
+        ],
+        "files": []
+    }
+}

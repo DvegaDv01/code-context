@@ -1,0 +1,71 @@
+{
+    "language": "<programming_language>",
+    "directories": {
+        "name": "<directory_name>",
+        "subdirectories": [
+            {
+                "name": "<subdirectory_name>",
+                "subdirectories": [ "/* ... recursively nested subdirectories ... */" ],
+                "files": [ "/* ... files in the subdirectory ... */" ]
+            },
+            "/* ... additional subdirectories ... */"
+        ],
+        "files": [
+            {
+                "name": "<file_name>",
+                "variables": [
+                    {
+                        "name": "<variable_name>",
+                        "data_type": "<variable_data_type>"
+                    },
+                    "/* ... additional variables ... */"
+                ],
+                "functions": [
+                    {
+                        "name": "<function_name>",
+                        "signature": "<function_signature>"
+                    },
+                    "/* ... additional functions ... */"
+                ],
+                "classes": [
+                    {
+                        "name": "<class_name>",
+                        "members": ["<member_1>", "<member_2>", "/* ... */"]
+                    },
+                    "/* ... additional classes ... */"
+                ]
+            },
+            "/* ... additional files ... */"
+        ]
+    },
+    "project_config": {
+        "compiler_options": "<compiler_options>",
+        "build_targets": "<build_targets>",
+        "settings": {
+            "<setting_key>": "<setting_value>"
+        }
+    },
+    "version_control": {
+        "branches": [
+            {
+                "name": "<branch_name>",
+                "commits": [
+                    {
+                        "message": "<commit_message>",
+                        "timestamp": "<commit_timestamp>"
+                    },
+                    "/* ... additional commits ... */"
+                ]
+            },
+            "/* ... additional branches ... */"
+        ],
+        "current_branch": "<current_branch_name>"
+    },
+    "dependencies": [
+        {
+            "library": "<library_name>",
+            "version": "<library_version>"
+        },
+        "/* ... additional dependencies ... */"
+    ]
+}
