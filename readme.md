@@ -45,6 +45,5 @@ code_context.version_control.commit_changes("Initial commit")
 # Add a dependency to the project
 code_context.add_dependency("numpy", "1.21.0")
 
-Contributing
-
+## Contributing
 Contributions to the Code Context Manager project are welcome! To contribute, please fork the repository, make your changes, and submit a pull request.
