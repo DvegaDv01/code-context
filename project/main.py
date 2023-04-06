@@ -2,6 +2,7 @@ import json
 from core.code_context import CodeContext
 from core.issue_tracker import IssueTracker
 from core.test_suite import TestSuite
+from models.directory import Directory
 
 def example_create_code_context():
     # Example 1: Create and manipulate a CodeContext instance
@@ -64,8 +65,9 @@ def example_deserialize_code_context():
     print(project_config.to_json())
     code_context.add_dependency("pandas", "1.3.5")
     code_context.version_control.commit_changes("Update dependencies")
-    print(dependencies.to_json())
+    print(dependencies)  # Print the dependencies directly
 
+    
 def main():
     # Prompt the user to select the example they want to run
     print("Select an example to run:")

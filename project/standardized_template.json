@@ -1,0 +1,75 @@
+{
+    "language": "",
+    "directories": {
+        "name": "",
+        "subdirectories": [
+            {
+                "name": "",
+                "subdirectories": [],
+                "files": [
+                    {
+                        "name": "",
+                        "variables": [
+                            {
+                                "name": "",
+                                "data_type": ""
+                            }
+                        ],
+                        "functions": [
+                            {
+                                "name": "",
+                                "signature": ""
+                            }
+                        ],
+                        "classes": [
+                            {
+                                "name": "",
+                                "attributes": [
+                                    {
+                                        "name": "",
+                                        "data_type": "",
+                                        "access_modifier": ""
+                                    }
+                                ],
+                                "methods": [
+                                    {
+                                        "name": "",
+                                        "signature": "",
+                                        "return_type": "",
+                                        "access_modifier": ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "files": []
+    },
+    "project_config": {
+        "compiler_options": "",
+        "build_targets": "",
+        "settings": {}
+    },
+    "version_control": {
+        "branches": [
+            {
+                "name": "",
+                "commits": [
+                    {
+                        "message": "",
+                        "timestamp": ""
+                    }
+                ]
+            }
+        ],
+        "current_branch": ""
+    },
+    "dependencies": [
+        {
+            "library": "",
+            "version": ""
+        }
+    ]
+}

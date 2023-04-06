@@ -1,3 +1,5 @@
+from models.file import File
+
 class Directory:
 
     def __init__(self, name):
@@ -10,19 +12,12 @@ class Directory:
 
         
 
+
     def create_subdirectory(self, name):
-
         if name not in self.subdirectories:
-
             subdir = Directory(name)
-
             self.subdirectories[name] = subdir
-
-            return subdir
-
-        return None  # Subdirectory already exists
-
-    
+        return self.subdirectories[name]
 
     def remove_subdirectory(self, name):
 
@@ -31,14 +26,9 @@ class Directory:
     
 
     def create_file(self, name):
-
         if name not in self.files:
-
             self.files[name] = File(name)
-
-            return self.files[name]
-
-        return None  # File already exists
+        return self.files[name]  # Return existing or newly created file
 
     
 
@@ -49,23 +39,14 @@ class Directory:
     
 
     def get_subdirectory(self, path):
-
         parts = path.split('/')
-
         current = self
-
         for part in parts:
-
             if part in current.subdirectories:
-
                 current = current.subdirectories[part]
-
             else:
-
-                return None  # Could not find the specified subdirectory
-
-        return current
-
+                return None  # Subdirectory not found
+        return current  # No error message when successful
     
 
     def to_json(self):

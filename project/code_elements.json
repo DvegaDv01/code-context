@@ -1,0 +1,38 @@
+{
+    "language": "",
+    "file": {
+        "name": "",
+        "variables": [
+            {
+                "name": "",
+                "data_type": ""
+            }
+        ],
+        "functions": [
+            {
+                "name": "",
+                "signature": ""
+            }
+        ],
+        "classes": [
+            {
+                "name": "",
+                "attributes": [
+                    {
+                        "name": "",
+                        "data_type": "",
+                        "access_modifier": ""
+                    }
+                ],
+                "methods": [
+                    {
+                        "name": "",
+                        "signature": "",
+                        "return_type": "",
+                        "access_modifier": ""
+                    }
+                ]
+            }
+        ]
+    }
+}

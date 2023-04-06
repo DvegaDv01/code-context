@@ -1,6 +1,15 @@
 import json
 import time
 
+from models.file import File
+from models.directory import Directory
+from core.project_config import ProjectConfig
+from core.version_control import VersionControl, Branch
+from core.issue_tracker import IssueTracker
+from core.test_suite import TestSuite
+from core.dependencies import Dependencies
+from core.language_context import LanguageContext
+
 class CodeContext:
     def __init__(self, language):
         self.language = language
@@ -57,8 +66,15 @@ class CodeContext:
         code_context = cls(language=language)
 
         # Populate directories and files
-        directories_json = context_json.get("directories", [])
-        code_context.directories = Directory.from_json(directories_json)
+        root_directory_json = context_json.get("directories", {})
+        root_directory = Directory(name=root_directory_json.get("name", "root"))
+        for subdir_json in root_directory_json.get("subdirectories", []):
+            subdir = Directory.from_json(subdir_json)
+            root_directory.subdirectories[subdir.name] = subdir
+        for file_json in root_directory_json.get("files", []):
+            file = File.from_json(file_json)
+            root_directory.files[file.name] = file
+        code_context.directories = root_directory
 
         # Populate project configurations
         project_config_json = context_json.get("project_config", {})

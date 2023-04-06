@@ -30,7 +30,23 @@
                 "classes": [
                     {
                         "name": "<class_name>",
-                        "members": ["<member_1>", "<member_2>", "/* ... */"]
+                        "attributes": [
+                            {
+                                "name": "<attribute_name>",
+                                "data_type": "<attribute_data_type>",
+                                "access_modifier": "<access_modifier>"
+                            },
+                            "/* ... additional attributes ... */"
+                        ],
+                        "methods": [
+                            {
+                                "name": "<method_name>",
+                                "signature": "<method_signature>",
+                                "return_type": "<return_type>",
+                                "access_modifier": "<access_modifier>"
+                            },
+                            "/* ... additional methods ... */"
+                        ]
                     },
                     "/* ... additional classes ... */"
                 ]

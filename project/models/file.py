@@ -6,17 +6,35 @@ class File:
         self.classes = {}
         
     def add_variable(self, name, data_type):
-        if name not in self.variables:
-            self.variables[name] = Variable(name, data_type)
+        if name in self.variables:
+            raise ValueError(f"Variable '{name}' already exists")
+        self.variables[name] = Variable(name, data_type)
         
     def add_function(self, name, signature):
-        if name not in self.functions:
-            self.functions[name] = Function(name, signature)
+        if name in self.functions:
+            raise ValueError(f"Function '{name}' already exists")
+        self.functions[name] = Function(name, signature)
         
     def add_class(self, name, members):
-        if name not in self.classes:
-            self.classes[name] = Class(name, members)
+        if name in self.classes:
+            raise ValueError(f"Class '{name}' already exists")
+        self.classes[name] = Class(name, members)
     
+    def update_variable(self, name, data_type):
+        if name not in self.variables:
+            raise ValueError(f"Variable '{name}' not found")
+        self.variables[name].data_type = data_type
+
+    def update_function(self, name, signature):
+        if name not in self.functions:
+            raise ValueError(f"Function '{name}' not found")
+        self.functions[name].signature = signature
+
+    def update_class(self, name, members):
+        if name not in self.classes:
+            raise ValueError(f"Class '{name}' not found")
+        self.classes[name].members = members
+
     def remove_variable(self, name):
         self.variables.pop(name, None)
     
@@ -36,17 +54,24 @@ class File:
 
     @classmethod
     def from_json(cls, file_json):
+        if "name" not in file_json:
+            raise ValueError("File JSON is missing 'name' key")
         file = cls(name=file_json["name"])
-        file.variables = {var["name"]: Variable.from_json(var) for var in file_json["variables"]}
-        file.functions = {func["name"]: Function.from_json(func) for func in file_json["functions"]}
-        file.classes = {cls["name"]: Class.from_json(cls) for cls in file_json["classes"]}
+        file.variables = {var["name"]: Variable.from_json(var) for var in file_json.get("variables", [])}
+        file.functions = {func["name"]: Function.from_json(func) for func in file_json.get("functions", [])}
+        file.classes = {cls["name"]: Class.from_json(cls) for cls in file_json.get("classes", [])}
         return file
+
+
 
 
 class Variable:
     def __init__(self, name, data_type):
         self.name = name
         self.data_type = data_type
+    
+    def __str__(self):
+        return f"{self.data_type} {self.name}"
     
     def to_json(self):
         return {
@@ -57,6 +82,7 @@ class Variable:
     @classmethod
     def from_json(cls, variable_json):
         return cls(name=variable_json["name"], data_type=variable_json["data_type"])
+
 
 
 class Function:
@@ -76,16 +102,20 @@ class Function:
 
 
 class Class:
-    def __init__(self, name, members):
+    def __init__(self, name, attributes, methods):
         self.name = name
-        self.members = members
+        self.attributes = attributes  # List of attributes
+        self.methods = methods  # List of methods
     
     def to_json(self):
         return {
             "name": self.name,
-            "members": self.members
+            "attributes": [attr.to_json() for attr in self.attributes],
+            "methods": [method.to_json() for method in self.methods]
         }
 
     @classmethod
     def from_json(cls, class_json):
-        return cls(name=class_json["name"], members=class_json["members"])
+        attributes = [Variable.from_json(attr) for attr in class_json.get("attributes", [])]
+        methods = [Function.from_json(method) for method in class_json.get("methods", [])]
+        return cls(name=class_json["name"], attributes=attributes, methods=methods)

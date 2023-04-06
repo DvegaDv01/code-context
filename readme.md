@@ -3,6 +3,8 @@
 ## Description
 The Code Context Manager is a Python project that provides a comprehensive set of classes and tools for managing code context. The project includes classes to represent and manipulate code elements, directory structures, version control, project configurations, issue tracking, testing, and dependencies. The codebase is designed to be modular, allowing developers to create, analyze, and manipulate code context in a structured manner.
 
+## Inspiration
+
 ## Features
 - Code Context: Create and manage the context of code projects, including variables, functions, and classes.
 - Language Context: Define language-specific contexts and manage language-related data.
